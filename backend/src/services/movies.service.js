@@ -2,6 +2,8 @@ const Model = require('../models/movies.model');
 
 class MovieService{ 
 
+	model = null;
+
 	constructor(){
 		this.model = new Model;
 	}
