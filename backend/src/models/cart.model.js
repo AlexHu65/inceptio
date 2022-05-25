@@ -52,4 +52,4 @@ class Carts{
 
 }
 
-module.exports = Users;
+module.exports = Carts;
