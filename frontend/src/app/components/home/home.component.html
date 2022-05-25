@@ -1,0 +1,13 @@
+<app-detalle [movieId]="mainMovie"></app-detalle>
+<div class="peliculas-recomendadas contenedor">
+	
+	<div class="contenedor-principal">
+		<div class="contenedor-carousel">
+			<div class="carousel">
+				<div *ngFor="let movie of movies" class="pelicula m-1">
+					<a (click)="movieDetail(movie.id)"><img src="assets/img/{{movie.thumbnail}}" alt="{{movie.name}}"></a>
+				</div>			
+			</div>
+		</div>
+	</div>
+</div>

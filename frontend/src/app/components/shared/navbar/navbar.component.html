@@ -1,0 +1,11 @@
+<header>
+	<div class="contenedor">
+		<h2 class="logotipo">INCEPTIO PLAYER</h2>
+		<nav>
+			<a [routerLink]="['/']" [routerLinkActive]="['text-danger', '']">Inicio</a>
+			<a [routerLink]="['/carrito']" [routerLinkActive]="['activo', '']">Carrito</a>
+			<a *ngIf="!loggedUser.email" [routerLink]="['/login']" [routerLinkActive]="['activo', '']">Login</a>
+			<a style="cursor: pointer;" (click)="logout()" *ngIf="loggedUser.email">Salir</a>
+		</nav>
+	</div>
+</header>

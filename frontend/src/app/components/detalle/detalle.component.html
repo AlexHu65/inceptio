@@ -1,0 +1,41 @@
+
+<div *ngIf="movie">
+	<div *ngFor="let item of movie" style="background-size:cover;background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(./assets/img/{{item.thumbnail}});" class="pelicula-principal">
+		<div  class="animated fadeIn contenedor">
+			<h3 class="titulo">{{item.name}}</h3>
+			<h4>
+				{{item.gender}}
+			</h4>
+			<small>{{item.date}}</small>
+			<p class="descripcion">
+				{{item.sinopsis}}
+			</p>
+			<p>
+				<small>{{item.premiere_date | date}}</small>
+			</p>
+			<button role="button" class="boton"><i class="pi pi-play"></i>Reproducir</button>
+			<button (click)="movieInformation()" role="button" class="boton"><i class="pi pi-info"></i>Más información</button>
+		</div>
+	</div>
+</div>
+
+<p-dialog *ngFor="let item of movie" header="{{item.name}}" [(visible)]="display" [style]="{width: '50vw'}"
+    [draggable]="false" [resizable]="false">
+	<img style="width: 45%;" class="img-thumbnail" src="./assets/img/{{item.thumbnail}}" alt="{{item.name}}">
+	<p>
+		<b>
+			{{item.gender}}
+		</b>
+	</p>
+	<p>
+		{{item.premiere_date | date}}
+	</p>
+    <p class="m-0 p-2">
+		{{item.sinopsis}}
+	</p>
+	<button (click)="addCarrito(item.id)" pButton pRipple type="button" label="Comprar por {{item.sell_price | currency}}" class="p-button-outlined p-button-danger m-2"></button>
+	<ng-template pTemplate="footer">
+		<p-button icon="pi pi-check" (click)="display=false" label="OK" styleClass="p-button-text"></p-button>
+	</ng-template>
+</p-dialog>
+

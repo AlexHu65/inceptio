@@ -1,0 +1,29 @@
+<div *ngIf="carrito" class="container">
+	<div class="row">
+		<div class="col">
+			<table class="table table-dark table-striped">
+				<thead>
+				  <tr>
+					<th scope="col">Pelicula</th>
+					<th scope="col">Precio compra</th>
+					<th scope="col"></th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr *ngFor="let item of carrito">
+					<td>{{item.name}}</td>
+					<td>{{item.sell_price | currency }}</td>
+					<td>
+						<button (click)="deleteCarrito(item.id)" pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
+					</td>
+				  </tr>
+				 </tbody>
+				 <tfoot>					 
+					 <td class="p-3 float-right">
+						Total:  {{total | currency}}
+					 </td>
+				 </tfoot>
+			  </table>
+		</div>
+	</div>
+</div>
