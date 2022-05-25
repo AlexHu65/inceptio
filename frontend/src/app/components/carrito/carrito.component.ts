@@ -28,21 +28,18 @@ export class CarritoComponent {
    
   deleteCarrito(id:number){
 
-    //almacenamos el carrito antes de borrarlo
-    const cart = this.carrito.find((item:Movie) => { 
-      return item.id !== id;
-    });  
 
-    this.carrito = [];
+    let cart = this.carrito.filter(function(item){ 
+      return item.id != id; 
+    });
+
+    this.carrito = cart;
     localStorage.removeItem('carrito');
+    localStorage.setItem('carrito', JSON.stringify(this.carrito));
     this.total = 0;
 
-    if(cart){
-      this.carrito.push(cart);
-      localStorage.setItem('carrito', JSON.stringify(this.carrito ));
-    }
-
-    for (let index = 0; index < this.carrito.length; index++) {
+    
+    for (let index = 0; index < cart.length; index++) {
       this.total += this.carrito[index].sell_price;
     }
   }

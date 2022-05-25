@@ -15,6 +15,8 @@
 			</p>
 			<button role="button" class="boton"><i class="pi pi-play"></i>Reproducir</button>
 			<button (click)="movieInformation()" role="button" class="boton"><i class="pi pi-info"></i>Más información</button>
+			<button (click)="addCarrito(item.id)" role="button" class="boton"><i class="pi pi-cart"></i>Comprar por {{item.sell_price | currency }}</button>
+		
 		</div>
 	</div>
 </div>

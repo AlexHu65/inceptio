@@ -187,7 +187,8 @@ header nav a.activo {
 	box-shadow: 5px 5px 10px rgba(0,0,0, .3);
 	cursor: pointer;
 	width: 600px;
-	height: 338px;
+	height: 300px;
+	max-height: 300px !important;
 	overflow: hidden;
 }
 
@@ -203,7 +204,9 @@ header nav a.activo {
 .peliculas-recomendadas .contenedor-carousel .carousel .pelicula img {
 	width: 100%;
 	vertical-align: top;
+	height: 350px !important;
 }
+
 
 /* ---- ----- ----- Media Queries ----- ----- ----- */
 @media screen and (max-width: 800px) {
