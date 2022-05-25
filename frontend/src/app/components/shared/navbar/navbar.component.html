@@ -6,6 +6,8 @@
 			<a [routerLink]="['/carrito']" [routerLinkActive]="['activo', '']">Carrito</a>
 			<a *ngIf="!loggedUser.email" [routerLink]="['/login']" [routerLinkActive]="['activo', '']">Login</a>
 			<a style="cursor: pointer;" (click)="logout()" *ngIf="loggedUser.email">Salir</a>
+			<a class="text-danger" style="cursor: pointer;" *ngIf="loggedUser.email">{{loggedUser.email}}</a>
+
 		</nav>
 	</div>
 </header>
