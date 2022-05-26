@@ -15,18 +15,22 @@ export class CarritoComponent {
   }
 
   cargarStorage(){
+
     if(localStorage.getItem('carrito')){
       this.carrito = JSON.parse(localStorage.getItem('carrito')  || '{}');
     }
 
-   for (let index = 0; index < this.carrito.length; index++) {
+    for (let index = 0; index < this.carrito.length; index++) {
      this.total += this.carrito[index].sell_price;
-   }
+    }
     
   }
 
    
   deleteCarrito(id:number){
+  
+    this.total = 0;
+    localStorage.removeItem('carrito');
 
 
     let cart = this.carrito.filter(function(item){ 
@@ -34,14 +38,13 @@ export class CarritoComponent {
     });
 
     this.carrito = cart;
-    localStorage.removeItem('carrito');
     localStorage.setItem('carrito', JSON.stringify(this.carrito));
-    this.total = 0;
+
+    this.carrito.map(((movie:Movie) => {
+      this.total += movie.sell_price; 
+    }));
 
     
-    for (let index = 0; index < cart.length; index++) {
-      this.total += this.carrito[index].sell_price;
-    }
   }
 
 }

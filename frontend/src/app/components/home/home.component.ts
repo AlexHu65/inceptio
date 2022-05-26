@@ -37,17 +37,6 @@ export class HomeComponent {
 
     });
 
-    //validate user
-    let local = JSON.parse(localStorage.getItem('user')  || '{}');
-    if(local[0]){
-      this.loggedUser = {
-        email: local[0].email,
-        id: local[0].id,
-        name: local[0].name,
-        avatar: local[0].avatar
-      }
-    }
-
   }
 
   movieDetail(idMovie:number){

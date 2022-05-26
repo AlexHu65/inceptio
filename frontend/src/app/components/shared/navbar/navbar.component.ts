@@ -7,7 +7,7 @@ import { Usuario } from 'src/app/interfaces/IUsers';
   templateUrl: './navbar.component.html'
 })
 
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
   loggedUser:Usuario = {
     id: 0,
@@ -41,7 +41,5 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('user');
   }
 
-  ngOnInit(): void {
-  }
 
 }
